@@ -8,20 +8,34 @@
 
 /* Begin PBXBuildFile section */
 		524B669620F7526F00E67332 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524B669520F7526F00E67332 /* AppDelegate.swift */; };
-		524B669820F7526F00E67332 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524B669720F7526F00E67332 /* ViewController.swift */; };
-		524B669B20F7526F00E67332 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 524B669920F7526F00E67332 /* Main.storyboard */; };
 		524B669D20F7527000E67332 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 524B669C20F7527000E67332 /* Assets.xcassets */; };
 		524B66A020F7527000E67332 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 524B669E20F7527000E67332 /* LaunchScreen.storyboard */; };
+		524B66AD20F7536300E67332 /* SACRenderPipelineState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524B66AB20F7536300E67332 /* SACRenderPipelineState.swift */; };
+		524B66AE20F7536300E67332 /* SACMetalCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524B66AC20F7536300E67332 /* SACMetalCenter.swift */; };
+		524B66B420F7537900E67332 /* Gamma.metal in Sources */ = {isa = PBXBuildFile; fileRef = 524B66B020F7537900E67332 /* Gamma.metal */; };
+		524B66B520F7537900E67332 /* Gradient.metal in Sources */ = {isa = PBXBuildFile; fileRef = 524B66B120F7537900E67332 /* Gradient.metal */; };
+		524B66B620F7537900E67332 /* Grayscale.metal in Sources */ = {isa = PBXBuildFile; fileRef = 524B66B220F7537900E67332 /* Grayscale.metal */; };
+		524B66B720F7537900E67332 /* Mapping.metal in Sources */ = {isa = PBXBuildFile; fileRef = 524B66B320F7537900E67332 /* Mapping.metal */; };
+		524B66B920F7539900E67332 /* VideoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524B66B820F7539900E67332 /* VideoProvider.swift */; };
+		524B66BC20F7565400E67332 /* VideoProcessingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524B66BA20F7565400E67332 /* VideoProcessingViewController.xib */; };
+		524B66BD20F7565400E67332 /* VideoProcessingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524B66BB20F7565400E67332 /* VideoProcessingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		524B669220F7526F00E67332 /* Aimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		524B669520F7526F00E67332 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		524B669720F7526F00E67332 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		524B669A20F7526F00E67332 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		524B669C20F7527000E67332 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		524B669F20F7527000E67332 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		524B66A120F7527000E67332 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		524B66AB20F7536300E67332 /* SACRenderPipelineState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SACRenderPipelineState.swift; sourceTree = "<group>"; };
+		524B66AC20F7536300E67332 /* SACMetalCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SACMetalCenter.swift; sourceTree = "<group>"; };
+		524B66B020F7537900E67332 /* Gamma.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Gamma.metal; sourceTree = "<group>"; };
+		524B66B120F7537900E67332 /* Gradient.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Gradient.metal; sourceTree = "<group>"; };
+		524B66B220F7537900E67332 /* Grayscale.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Grayscale.metal; sourceTree = "<group>"; };
+		524B66B320F7537900E67332 /* Mapping.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Mapping.metal; sourceTree = "<group>"; };
+		524B66B820F7539900E67332 /* VideoProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoProvider.swift; sourceTree = "<group>"; };
+		524B66BA20F7565400E67332 /* VideoProcessingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoProcessingViewController.xib; sourceTree = "<group>"; };
+		524B66BB20F7565400E67332 /* VideoProcessingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoProcessingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +68,29 @@
 		524B669420F7526F00E67332 /* Aimer */ = {
 			isa = PBXGroup;
 			children = (
+				524B66AF20F7536500E67332 /* Shader */,
 				524B669520F7526F00E67332 /* AppDelegate.swift */,
-				524B669720F7526F00E67332 /* ViewController.swift */,
-				524B669920F7526F00E67332 /* Main.storyboard */,
+				524B66AC20F7536300E67332 /* SACMetalCenter.swift */,
+				524B66AB20F7536300E67332 /* SACRenderPipelineState.swift */,
+				524B66BB20F7565400E67332 /* VideoProcessingViewController.swift */,
+				524B66BA20F7565400E67332 /* VideoProcessingViewController.xib */,
+				524B66B820F7539900E67332 /* VideoProvider.swift */,
 				524B669C20F7527000E67332 /* Assets.xcassets */,
 				524B669E20F7527000E67332 /* LaunchScreen.storyboard */,
 				524B66A120F7527000E67332 /* Info.plist */,
 			);
 			path = Aimer;
+			sourceTree = "<group>";
+		};
+		524B66AF20F7536500E67332 /* Shader */ = {
+			isa = PBXGroup;
+			children = (
+				524B66B020F7537900E67332 /* Gamma.metal */,
+				524B66B120F7537900E67332 /* Gradient.metal */,
+				524B66B220F7537900E67332 /* Grayscale.metal */,
+				524B66B320F7537900E67332 /* Mapping.metal */,
+			);
+			path = Shader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,9 +151,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				524B66BC20F7565400E67332 /* VideoProcessingViewController.xib in Resources */,
 				524B66A020F7527000E67332 /* LaunchScreen.storyboard in Resources */,
 				524B669D20F7527000E67332 /* Assets.xcassets in Resources */,
-				524B669B20F7526F00E67332 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,7 +164,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				524B669820F7526F00E67332 /* ViewController.swift in Sources */,
+				524B66B920F7539900E67332 /* VideoProvider.swift in Sources */,
+				524B66B620F7537900E67332 /* Grayscale.metal in Sources */,
+				524B66B720F7537900E67332 /* Mapping.metal in Sources */,
+				524B66AD20F7536300E67332 /* SACRenderPipelineState.swift in Sources */,
+				524B66AE20F7536300E67332 /* SACMetalCenter.swift in Sources */,
+				524B66B520F7537900E67332 /* Gradient.metal in Sources */,
+				524B66B420F7537900E67332 /* Gamma.metal in Sources */,
+				524B66BD20F7565400E67332 /* VideoProcessingViewController.swift in Sources */,
 				524B669620F7526F00E67332 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,14 +179,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		524B669920F7526F00E67332 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				524B669A20F7526F00E67332 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		524B669E20F7527000E67332 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -283,6 +311,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F72NM3PQH6;
 				INFOPLIST_FILE = Aimer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -301,6 +330,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F72NM3PQH6;
 				INFOPLIST_FILE = Aimer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
