@@ -14,16 +14,9 @@ class VideoProcessingViewController: UIViewController {
 
     @IBOutlet weak var mtkView: MTKView!
     @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var paramsPickerView: UIPickerView!
     
-    let dict: [String : [SACRenderPipelineStateType]] = [
-        "None" : [],
-        "Grayscale" : [.grayscale],
-        "Gradient" : [.gradient],
-        "gamma2.0" : [.gamma]
-    ]
-    
-    let settings = ["None", "Grayscale", "Gradient", "gamma2.0"]
-    var filters = [SACRenderPipelineStateType]()
+    var selectedFilter = Filter.setting[0]
     
     let device = SACMetalCenter.shared.device
     var commandQueue = SACMetalCenter.shared.commandQueue
@@ -38,6 +31,8 @@ class VideoProcessingViewController: UIViewController {
         setupMetal()
         pickerView.delegate = self
         pickerView.dataSource = self
+        paramsPickerView.delegate = self
+        paramsPickerView.dataSource = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,7 +61,7 @@ extension VideoProcessingViewController: MTKViewDelegate {
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {}
     
     func draw(in view: MTKView) {
-        SACMetalCenter.shared.filters = filters
+        SACMetalCenter.shared.currentFilter = selectedFilter
         SACMetalCenter.shared.render(sourceTexture: sourceTexture!, renderView: mtkView)
     }
 }
@@ -82,7 +77,15 @@ extension VideoProcessingViewController: VideoProviderDelegate {
 
 extension VideoProcessingViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        filters = dict[settings[row]]!
+        if pickerView == self.pickerView {
+            selectedFilter = Filter.setting[row]
+            paramsPickerView.reloadComponent(0)
+            if let param = selectedFilter.params.first {
+                SACMetalCenter.shared.passParam = param
+            }
+        } else {
+            SACMetalCenter.shared.passParam = selectedFilter.params[row]
+        }
     }
 }
 
@@ -92,10 +95,18 @@ extension VideoProcessingViewController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return settings.count
+        if pickerView == self.pickerView {
+            return Filter.setting.count
+        } else {
+            return selectedFilter.params.count
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return settings[row]
+        if pickerView == self.pickerView {
+            return Filter.setting[row].name
+        } else {
+            return String(selectedFilter.params[row])
+        }
     }
 }

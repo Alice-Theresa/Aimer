@@ -10,9 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VideoProcessingViewController" customModule="Venus" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VideoProcessingViewController" customModule="Aimer" customModuleProvider="target">
             <connections>
                 <outlet property="mtkView" destination="8OX-hv-YFN" id="MnJ-mh-n62"/>
+                <outlet property="paramsPickerView" destination="GdL-nY-B9O" id="JnW-Mj-8Vo"/>
                 <outlet property="pickerView" destination="tQd-UT-jHf" id="8Ds-um-sa9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -25,19 +26,46 @@
                 <mtkView contentMode="scaleToFill" colorPixelFormat="BGRA8Unorm" depthStencilPixelFormat="Depth32Float" translatesAutoresizingMaskIntoConstraints="NO" id="8OX-hv-YFN">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </mtkView>
-                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tQd-UT-jHf">
-                    <rect key="frame" x="0.0" y="451" width="375" height="216"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PCw-HS-H4G">
+                    <rect key="frame" x="0.0" y="517" width="375" height="150"/>
+                    <subviews>
+                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tQd-UT-jHf">
+                            <rect key="frame" x="0.0" y="0.0" width="164.5" height="150"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </pickerView>
+                        <pickerView contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="GdL-nY-B9O">
+                            <rect key="frame" x="164.5" y="0.0" width="164.5" height="150"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </pickerView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t0e-MO-fmQ">
+                            <rect key="frame" x="329" y="60" width="46" height="30"/>
+                            <state key="normal" title="Button"/>
+                        </button>
+                    </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </pickerView>
+                    <constraints>
+                        <constraint firstItem="GdL-nY-B9O" firstAttribute="width" secondItem="tQd-UT-jHf" secondAttribute="width" id="KXm-TE-gDF"/>
+                        <constraint firstAttribute="bottom" secondItem="tQd-UT-jHf" secondAttribute="bottom" id="SSM-nj-Yg9"/>
+                        <constraint firstItem="tQd-UT-jHf" firstAttribute="top" secondItem="PCw-HS-H4G" secondAttribute="top" id="TM7-X7-kyb"/>
+                        <constraint firstItem="tQd-UT-jHf" firstAttribute="leading" secondItem="PCw-HS-H4G" secondAttribute="leading" id="bHw-rw-HYh"/>
+                        <constraint firstItem="GdL-nY-B9O" firstAttribute="leading" secondItem="tQd-UT-jHf" secondAttribute="trailing" id="d3y-yI-n5g"/>
+                        <constraint firstItem="GdL-nY-B9O" firstAttribute="top" secondItem="PCw-HS-H4G" secondAttribute="top" id="hB3-4v-dM8"/>
+                        <constraint firstItem="t0e-MO-fmQ" firstAttribute="centerY" secondItem="PCw-HS-H4G" secondAttribute="centerY" id="iLJ-3M-Fo3"/>
+                        <constraint firstAttribute="bottom" secondItem="GdL-nY-B9O" secondAttribute="bottom" id="m6H-sX-2qv"/>
+                        <constraint firstAttribute="height" constant="150" id="nwU-tP-qhm"/>
+                        <constraint firstItem="t0e-MO-fmQ" firstAttribute="leading" secondItem="GdL-nY-B9O" secondAttribute="trailing" id="r2J-8i-byO"/>
+                        <constraint firstAttribute="trailing" secondItem="t0e-MO-fmQ" secondAttribute="trailing" id="xXk-Qw-IZ4"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="8OX-hv-YFN" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="0ii-R2-A1J"/>
                 <constraint firstItem="8OX-hv-YFN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="5NT-Zk-H6E"/>
-                <constraint firstItem="tQd-UT-jHf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="8cn-03-KBt"/>
+                <constraint firstItem="PCw-HS-H4G" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="DEF-wQ-6cH"/>
                 <constraint firstItem="8OX-hv-YFN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Hif-wy-lWT"/>
-                <constraint firstAttribute="bottom" secondItem="tQd-UT-jHf" secondAttribute="bottom" id="KbP-Cv-0te"/>
-                <constraint firstItem="tQd-UT-jHf" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Koq-1N-RJT"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="PCw-HS-H4G" secondAttribute="bottom" id="Le5-8Y-wty"/>
+                <constraint firstItem="PCw-HS-H4G" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Wnv-WT-Dji"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8OX-hv-YFN" secondAttribute="trailing" id="cmd-AG-yqR"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

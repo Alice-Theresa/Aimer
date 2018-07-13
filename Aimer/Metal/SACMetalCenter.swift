@@ -21,7 +21,9 @@ class SACMetalCenter {
     var firstTexture: MTLTexture!
     var secondTexture: MTLTexture!
     
-    var filters: [SACRenderPipelineStateType] = []
+    var currentFilter: Filter = Filter.setting.first!
+    
+    var passParam: Float?
     
     var renderingSize: CGSize = CGSize(width: 0, height: 0) {
         didSet {
@@ -38,13 +40,12 @@ class SACMetalCenter {
     private init() {
         device = MTLCreateSystemDefaultDevice()!
         commandQueue = device.makeCommandQueue()!
-        
     }
     
     func render(sourceTexture: MTLTexture, renderView: MTKView) {
         check()
         
-        for (index, filter) in filters.enumerated() {
+        for (index, filter) in currentFilter.filters.enumerated() {
             
             var inputTexture, targetTexture: MTLTexture
             if index == 0 {
@@ -60,9 +61,6 @@ class SACMetalCenter {
             
             let renderPassDescriptor = MTLRenderPassDescriptor()
             renderPassDescriptor.colorAttachments[0].texture = targetTexture
-//            renderPassDescriptor.colorAttachments[0].loadAction = .clear
-//            renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
-//            renderPassDescriptor.colorAttachments[0].storeAction = .multisampleResolve
             
             guard let buffer = commandQueue.makeCommandBuffer(),
                 let encoder = buffer.makeRenderCommandEncoder(descriptor: renderPassDescriptor)
@@ -71,10 +69,16 @@ class SACMetalCenter {
             let state = SACRenderPipelineState.fetch(type: filter)
             
             let size: [Float] = [Float(renderingSize.width), Float(renderingSize.height)]
-            let dataBuffer = device.makeBuffer(bytes: size, length: size.count * MemoryLayout.size(ofValue: size[0]), options: [])
+            let sizeBuffer = device.makeBuffer(bytes: size, length: size.count * MemoryLayout.size(ofValue: size[0]), options: [])
             
             encoder.setRenderPipelineState(state)
-            encoder.setVertexBuffer(dataBuffer, offset: 0, index: 0) //
+            encoder.setVertexBuffer(sizeBuffer, offset: 0, index: 0)
+            
+            if let param = passParam {
+                let paramBuffer = device.makeBuffer(bytes: [param], length: MemoryLayout.size(ofValue: param), options: [])
+                encoder.setFragmentBuffer(paramBuffer, offset: 0, index: 0)
+            }
+            
             encoder.setFragmentTexture(inputTexture, index: 0)
             encoder.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 4, instanceCount: 1)
             encoder.endEncoding()
@@ -92,9 +96,9 @@ class SACMetalCenter {
         let state = SACRenderPipelineState.fetch(type: .mapping)
         encoder.setRenderPipelineState(state)
         var texture: MTLTexture
-        if filters.count == 0 {
+        if currentFilter.filters.count == 0 {
             texture = sourceTexture
-        } else if filters.count % 2 == 0 {
+        } else if currentFilter.filters.count % 2 == 0 {
             texture = secondTexture
         } else {
             texture = firstTexture
@@ -109,8 +113,7 @@ class SACMetalCenter {
     
     func check() {
         if renderingSize.width == 0 || renderingSize.height == 0 {
-            fatalError()
+            fatalError("you should set rendering size first")
         }
-        
     }
 }

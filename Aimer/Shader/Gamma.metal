@@ -32,10 +32,11 @@ vertex GammaMappingVertex gammaVertex(unsigned int vertex_id [[ vertex_id ]]) {
 }
 
 fragment half4 gammaFragment(GammaMappingVertex mappingVertex [[ stage_in ]],
-                                 texture2d<float, access::sample> texture [[ texture(0) ]]) {
+                             texture2d<float, access::sample> texture [[ texture(0) ]],
+                             const device float *gamma [[ buffer(0) ]]) {
     constexpr sampler s(address::clamp_to_edge, filter::linear);
 
     half4 sam = half4(texture.sample(s, mappingVertex.textureCoordinate));
-    return half4(pow(sam.rgb, 2.0), 1);
+    return half4(pow(sam.rgb, gamma[0]), 1);
 }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		522083F820F852D700073158 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522083F720F852D700073158 /* Filters.swift */; };
 		524B669620F7526F00E67332 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524B669520F7526F00E67332 /* AppDelegate.swift */; };
 		524B669D20F7527000E67332 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 524B669C20F7527000E67332 /* Assets.xcassets */; };
 		524B66A020F7527000E67332 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 524B669E20F7527000E67332 /* LaunchScreen.storyboard */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		522083F720F852D700073158 /* Filters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
 		524B669220F7526F00E67332 /* Aimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		524B669520F7526F00E67332 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		524B669C20F7527000E67332 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +51,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		522083F920F85A1E00073158 /* Metal */ = {
+			isa = PBXGroup;
+			children = (
+				522083F720F852D700073158 /* Filters.swift */,
+				524B66AC20F7536300E67332 /* SACMetalCenter.swift */,
+				524B66AB20F7536300E67332 /* SACRenderPipelineState.swift */,
+			);
+			path = Metal;
+			sourceTree = "<group>";
+		};
 		524B668920F7526F00E67332 = {
 			isa = PBXGroup;
 			children = (
@@ -69,9 +81,8 @@
 			isa = PBXGroup;
 			children = (
 				524B66AF20F7536500E67332 /* Shader */,
+				522083F920F85A1E00073158 /* Metal */,
 				524B669520F7526F00E67332 /* AppDelegate.swift */,
-				524B66AC20F7536300E67332 /* SACMetalCenter.swift */,
-				524B66AB20F7536300E67332 /* SACRenderPipelineState.swift */,
 				524B66BB20F7565400E67332 /* VideoProcessingViewController.swift */,
 				524B66BA20F7565400E67332 /* VideoProcessingViewController.xib */,
 				524B66B820F7539900E67332 /* VideoProvider.swift */,
@@ -165,6 +176,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				524B66B920F7539900E67332 /* VideoProvider.swift in Sources */,
+				522083F820F852D700073158 /* Filters.swift in Sources */,
 				524B66B620F7537900E67332 /* Grayscale.metal in Sources */,
 				524B66B720F7537900E67332 /* Mapping.metal in Sources */,
 				524B66AD20F7536300E67332 /* SACRenderPipelineState.swift in Sources */,
@@ -309,7 +321,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F72NM3PQH6;
+				DEVELOPMENT_TEAM = RJX3H8KBAF;
 				INFOPLIST_FILE = Aimer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -328,7 +340,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F72NM3PQH6;
+				DEVELOPMENT_TEAM = RJX3H8KBAF;
 				INFOPLIST_FILE = Aimer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
